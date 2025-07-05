@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Statistik Tugas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/add-page">Tambah</a>
+      <a href="/about">Tentang</a>
+      <a href="/contact">Kontak</a>
+      <a href="/stats">Statistik</a>
+    </nav>
+
+    <h1>📊 Statistik Tugas</h1>
+    <p>Total Tugas: <strong>{{ total }}</strong></p>
+    <p>Selesai: <strong>{{ selesai }}</strong></p>
+    <p>Belum Selesai: <strong>{{ belum }}</strong></p>
+
+    <a href="/" class="cancel">← Kembali ke Dashboard</a>
+  </div>
+</body>
+</html>

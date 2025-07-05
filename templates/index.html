@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Tugas Kuliah</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/add-page">Tambah</a>
+      <a href="/about">Tentang</a>
+      <a href="/contact">Kontak</a>
+      <a href="/history">Riwayat</a>
+    </nav>
+
+    <h1>📘 Daftar Tugas Kuliah</h1>
+
+    <ul class="task-list">
+      {% for task in tasks %}
+      <li class="{% if task.status == 'Selesai' %}done{% endif %}">
+        <div class="task">
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+          <p><strong>Deadline:</strong> {{ task.deadline.strftime('%d-%m-%Y %H:%M') }}</p>
+          <p><strong>Status:</strong> {{ task.status }}</p>
+          <div class="actions">
+            {% if task.status != 'Selesai' %}
+              <a href="/complete/{{ task.id }}" class="complete">✔️ Selesai</a>
+            {% endif %}
+            <a href="/edit/{{ task.id }}" class="edit">✏️ Edit</a>
+            <a href="/delete/{{ task.id }}" class="delete">🗑️ Hapus</a>
+          </div>
+        </div>
+      </li>
+      {% else %}
+      <li><em>Belum ada tugas.</em></li>
+      {% endfor %}
+    </ul>
+    <a href="/" class="cancel">← Kembali ke Dashboard</a>
+  </div>
+</body>
+</html>

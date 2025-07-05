@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Tugas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/add-page">Tambah</a>
+      <a href="/about">Tentang</a>
+      <a href="/contact">Kontak</a>
+      <a href="/history">Riwayat</a>
+    </nav>
+
+    <h1>✏️ Edit Tugas</h1>
+    <form method="POST" class="task-form">
+      <input type="text" name="title" value="{{ task.title }}" required>
+      <textarea name="description" required>{{ task.description }}</textarea>
+      <input type="datetime-local" name="deadline" value="{{ task.deadline.strftime('%Y-%m-%dT%H:%M') }}" required>
+      <button type="submit">Simpan Perubahan</button>
+    </form>
+    <a href="/" class="cancel">← Kembali ke Dashboard</a>
+  </div>
+</body>
+</html>

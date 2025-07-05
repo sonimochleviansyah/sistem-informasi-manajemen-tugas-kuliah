@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Riwayat Tugas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/add-page">Tambah</a>
+      <a href="/about">Tentang</a>
+      <a href="/contact">Kontak</a>
+      <a href="/history">Riwayat</a>
+    </nav>
+
+    <h1>🕓 Riwayat Tugas Selesai</h1>
+
+    <ul class="task-list">
+      {% for task in finished %}
+      <li class="done">
+        <div class="task">
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+          <p><strong>Deadline:</strong> {{ task.deadline.strftime('%d-%m-%Y %H:%M') }}</p>
+          <p><strong>Status:</strong> {{ task.status }}</p>
+        </div>
+      </li>
+      {% else %}
+      <li><em>Belum ada tugas yang diselesaikan.</em></li>
+      {% endfor %}
+    </ul>
+
+    <a href="/" class="cancel">← Kembali ke Dashboard</a>
+  </div>
+</body>
+</html>

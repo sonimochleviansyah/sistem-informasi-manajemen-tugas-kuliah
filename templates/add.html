@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tambah Tugas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/add-page">Tambah</a>
+      <a href="/about">Tentang</a>
+      <a href="/contact">Kontak</a>
+      <a href="/history">Riwayat</a>
+    </nav>
+
+    <h1>➕ Tambah Tugas Baru</h1>
+    <form method="POST" action="/add" class="task-form">
+      <input type="text" name="title" placeholder="Judul Tugas" required>
+      <textarea name="description" placeholder="Deskripsi Tugas" required></textarea>
+      <input type="datetime-local" name="deadline" required>
+      <button type="submit">Simpan Tugas</button>
+    </form>
+    <a href="/" class="cancel">← Kembali ke Dashboard</a>
+  </div>
+</body>
+</html>
